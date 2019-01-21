@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>ウェブアクセシビリティ</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+  <link rel="stylesheet" href="css/additional.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/vs2015.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>
+          ウェブのアクセシビリティ
+        </h1>
+        <footer>
+          <p class="u-taL">
+            <small>
+              <time datetime="2019-01-23">2019/1/23</time>
+              <span class="u-dB u-mt12">
+                <span class="u-dIb">トライデントコンピュータ専門学校</span>
+                <span class="u-dIb">Webデザイン学科</span>
+                <span class="u-dIb">業界研究授業</span>
+              </span>
+            </small>
+          </p>
+        </footer>
+      </section>
+      <section>
+        <h2>私</h2>
+        <p class="u-taL u-dF -middle -center">
+          <img class="u-mr40" src="./assets/profile3.jpg" height="150" style="border-radius: 50%;" alt="@masuP9のプロフィール写真。ますぴーとかかれた木製のバッジの写真" />
+          <img class="u-mr40" src="./assets/profile4.jpg" height="150" style="border-radius: 50%;" alt="私のプロフィール写真その2。ビール片手のメガネに髭の丸顔の男性" />
+          <span>
+            <ruby class="u-dB">桝田 草一<rp>(</rp><rt>ますだ そういち</rt><rp>)</rp></ruby>
+            <a class="u-dB" href="https://twitter.com/masuP9">@masuP9</a>
+          </span>
+        </p>
+      </section>
+      <section>
+        <h3>略歴</h3>
+        <ol style="list-style: circle" class="u-fzS">
+          <li>2003 ~ 2007: 立命館大学政策科学部</li>
+          <li>2007 ~ 2014: 株式会社構造計画研究所(営業)</li>
+          <li>2014 ~ 2016: デジパ株式会社(マークアップエンジニア)</li>
+          <li>2017 ~ 現在: サイバーエージェント(フロントエンドデベロッパー / アクセシビリティエバンジェリスト)</li>
+        </ol>
+      </section>
+      <section>
+        <h2>ウェブアクセシビリティとは</h2>
+      </section>
+      <section>
+        <h3>アクセシビリティ</h3>
+        <p class="u-fzL"><b>accessibility</b></p>
+        <p class="u-fzL"><b>access</b> + <b>ability</b> = アクセス可能性</p>
+      </section>
+      <section>
+        <h3>アクセスできる</h3>
+        <ul>
+          <li>知覚できる</li>
+          <li>操作できる</li>
+          <li>理解できる</li>
+          <li>壊れない</li>
+        </ul>
+      </section>
+      <section>
+        <h4>知覚できる</h4>
+        <p style="color: transparent;">隠しテキストとかもう世代的に通じ無さそう（今年34歳のボヤキ）</p>
+      </section>
+      <section>
+        <h4 class="u-mb40">操作できる</h4>
+        <div class="u-mt40">
+          <span id="dummy-button">
+            button
+          </span>
+          <style>
+            #dummy-button {
+              padding: 0.5em 3em;
+              border-radius: 1000px;
+              background: tomato;
+            }
+
+            #dummy-button:hover {
+              background-color: rgb(203, 45, 17);
+              cursor: pointer;
+            }
+          </style>
+        </div>
+      </section>
+      <section>
+        <h4>理解できる</h4>
+        <p>আমি একটু অ্যাক্সেসযোগ্যতা দক্ষতা আছে</p>
+        <p class="fragment">
+            I have a little accessibility skill.<br />
+            ワタシハアクセシビリティチョットデキル
+        </p>
+      </section>
+      <section>
+        <h4>壊れない</h4>
+        <blockquote>
+          <p>&ldquo;このページ、あのブラウザで見ると崩れているので今日中にご確認お願いできますか？&bdquo;</p>
+        </blockquote>
+      </section>
+      <section>
+        <h3>アクセシビリティのお隣さんたち</h3>
+        <ul class="u-mt20">
+          <li>アベイラビリティ: availability</li>
+          <li>ファインダビリティ: findability</li>
+          <li>ユーザビリティ: usability</li>
+        </ul>
+        <p class="u-mt40">明確に区別されず領域は重なる</p>
+      </section>
+      <section>
+        <h2>ウェブをとりまく多様性</h2>
+      </section>
+      <section>
+        <h3>ユーザーの多様性</h3>
+      </section>
+      <section>
+        <h4>およそ14人に1人</h4>
+        <div class="fragment">
+          <ul>
+            <li>身体障害 - 29人に1人</li>
+            <li>知的障害 - 111人に1人</li>
+            <li>精神障害 - 32人に1人</li>
+          </ul>
+          <p>
+            <a class="u-fzS" href="https://www8.cao.go.jp/shougai/whitepaper/h30hakusho/zenbun/pdf/ref2.pdf">
+              <cite>平成30年版 障害者白書 - 障害者の状況</cite>
+              PDF
+            </a>
+          </p>
+        </div>
+      </section>
+      <section>
+        <h3>デバイスの多様性</h3>
+      </section>
+      <section>
+        <figure>
+          <blockquote>
+            <img src="./assets/this-is-not-web.png" alt="This is not Web と映し出された古いディスプレイのデスクトップ">
+          </blockquote>
+          <figcaption>
+            <a href="http://bradfrost.com/blog/post/this-is-the-web/">
+              <cite>
+                this is the web.
+              </cite>
+              by Brad Frost
+            </a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <figure>
+          <blockquote>
+            <img src="./assets/this-is-the-web.png" alt="This is the Web. Webと映し出された様々な大きなディスプレイ、ラップトップ、タブレット、スマートフォン、携帯電話">
+          </blockquote>
+          <figcaption>
+            <a href="http://bradfrost.com/blog/post/this-is-the-web/">
+              <cite>
+                this is the web.
+              </cite>
+              by Brad Frost
+            </a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <figure>
+          <blockquote>
+            <img src="./assets/this-will-bethe-web.png" alt="This will be the Web. 様々な大きなディスプレイ、ラップトップ、タブレット、スマートフォン、携帯電話、冷蔵庫のディスプレイ、ゲーム機、プリンタ、時計、自動車。そして周りに多くの？">
+          </blockquote>
+          <figcaption>
+            <a href="http://bradfrost.com/blog/post/this-is-the-web/">
+              <cite>
+                this is the web.
+              </cite>
+              by Brad Frost
+            </a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <h3>閲覧環境の多様性</h3>
+        <dl class="u-dF -middle -center">
+          <div class="u-mr40">
+            <dt class="u-taC u-fwN">屋外</dt>
+            <dd class="u-ml0"><img height="200" src="./assets/smartphone_map_app_woman.png" alt="女性がスマートフォンのマップアプリで住所の確認をしているイラスト" /></dd>
+          </div>
+          <div class="u-mr40 fragment">
+            <dt class="u-taC u-fwN">電車の中</dt>
+            <dd class="u-ml0"><img height="200" src="./assets/train_densya_smartphone.png" alt="電車やバスのシートに座っている人たちが皆スマートフォンを使っている様子を描いたイラスト" /></dd>
+          </div>
+          <div class="u-mr40 fragment">
+            <dt class="u-taC u-fwN">料理中</dt>
+            <dd class="u-ml0"><img height="200" src="./assets/roujin_ryouri_ojiisan.png" alt="お爺さんがキッチンで料理をしているイラスト" /></dd>
+          </div>
+          <div class="u-mr40 fragment">
+            <dt class="u-taC u-fwN">運転中</dt>
+            <dd class="u-ml0"><img height="200" src="./assets/taxi_driver_untensyu3.png" alt="黄色いタクシーを運転をしている運転手さんのイラスト" /></dd>
+          </div>
+        </dl>
+      </section>
+      <section>
+        <h3>〜づらいは誰にでも</h3>
+      </section>
+      <section>
+        <h4>見えづらい（ない）</h4>
+        <ol style="list-style: circle;">
+          <li>全盲</li>
+          <li>ロービジョン</li>
+          <li>コンタクト外した</li>
+          <li>高齢者</li>
+          <li>後ろの方の席</li>
+          <li>眩しい環境</li>
+        </ol>
+      </section>
+      <section>
+        <h4>きこえづらい（ない）</h4>
+        <ol style="list-style: circle;">
+          <li>失聴</li>
+          <li>難聴</li>
+          <li>イヤホン忘れた</li>
+          <li>高齢者</li>
+          <li>授業中</li>
+          <li>うるさい環境</li>
+        </ol>
+      </section>
+      <section>
+        <h4>操作しづらい（できない）</h4>
+        <ol style="list-style: circle;">
+          <li>全身不随</li>
+          <li>四肢欠損</li>
+          <li>怪我した</li>
+          <li>高齢者</li>
+          <li>マウスが壊れた</li>
+          <li>手袋している</li>
+        </ol>
+      </section>
+      <section>
+        <div class="u-taL u-fzL" style="width: 70%; margin: 0 auto;">
+          <p>誰かの使いにくいは、<br />誰かには使えない。</p>
+          <p>誰かの使えるは、<br />誰かには使いやすい。</p>
+        </div>
+      </section>
+      <section>
+        <h3>多様であることの価値</h3>
+        <ul class="u-dF -center" style="list-style: none;">
+          <li><img height="150" src="./assets/figure_rpg_character_kenshi.png" alt="剣士" /></li>
+          <li><img height="150" src="./assets/figure_rpg_character_kenshi.png" alt="剣士" /></li>
+          <li><img height="150" src="./assets/figure_rpg_character_kenshi.png" alt="剣士" /></li>
+          <li><img height="150" src="./assets/figure_rpg_character_kenshi.png" alt="剣士" /></li>
+        </ul>
+        <ul class="fragment u-dF -center" style="list-style: none;">
+          <li><img height="150" src="./assets/figure_rpg_character_yuusya.png" alt="勇者" /></li>
+          <li><img height="150" src="./assets/figure_rpg_character_kenshi.png" alt="剣士" /></li>
+          <li><img height="150" src="./assets/figure_rpg_character_butouka.png" alt="武闘家" /></li>
+          <li><img height="150" src="./assets/figure_rpg_character_mahoutsukai.png" alt="魔法使い" /></li>
+        </ul>
+      </section>
+      <section>
+        <h3>多様性の尊重</h3>
+        <figure>
+          <blockquote>
+            <img
+              style="max-height: 50vh"
+              src="./assets/screenshot_setting_gender_facebook.jpg"
+              alt="性別の設定欄のスクリーンショット。女性・男性・カスタムとあり、カスタムを選択すると記入式で設定でき、性別代名詞を選ぶこともできる。" />
+          </blockquote>
+          <figcaption>
+            <a href="https://www.facebook.com/"><cite>https://www.facebook.com/</cite></a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <h2>アクセシブルなウェブの作り方</h2>
+      </section>
+      <section>
+        <h3>HTMLをきちんと書く</h3>
+        <p><em>ガチ本当のマジでマジ</em></p>
+      </section>
+      <section>
+        <ul>
+          <li>分かりやすい <code>&lt;title&gt;</code></li>
+          <li>見出しは <code>&lt;h1&gt;</code> ~ <code>&lt;h6&gt;</code></li>
+          <li>リンクは <code>&lt;a href&gt;</code>、ボタンは <code>&lt;button&gt;</code></li>
+          <li>&lt;input&gt;には&lt;label&gt;</li>
+          <li><code>&lt;img&gt;</code>には<code>alt</code>属性を書く</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Read the HTML Living Standard</h3>
+        <p><a href="https://html.spec.whatwg.org/multipage/#toc-semantics">4 The elements of HTML</a></p>
+      </section>
+      <section>
+        <h3>デザイン</h3>
+        <ul>
+          <li>色に頼らない</li>
+          <li>動くものは止められる</li>
+        </ul>
+      </section>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      slideNumber: true,
+      history: true,
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+  </script>
+</body>
+
+</html>

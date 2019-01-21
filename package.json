@@ -1,0 +1,32 @@
+{
+  "name": "trident-a11y-lesson",
+  "version": "1.0.0",
+  "description": "slide in trident-a11y-lesson",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run server & npm run build:css -- --watch",
+    "server": "browser-sync start --server 'docs' --files 'docs/index.html, docs/css/*'",
+    "build:css": "postcss src/css/*.css --dir docs/css",
+    "lint:html": "markuplint docs/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masuP9/trident-a11y-lesson.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masuP9/trident-a11y-lesson/issues"
+  },
+  "homepage": "https://github.com/masuP9/trident-a11y-lesson#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "cssnano": "^4.1.8",
+    "markuplint": "^0.32.0",
+    "postcss-cli": "^6.1.1",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-preset-env": "^6.5.0",
+    "prettier": "^1.16.0"
+  },
+  "dependencies": {}
+}

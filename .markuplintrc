@@ -1,0 +1,23 @@
+{
+  "extends": "markuplint/html-ls",
+  "rules": {
+    "attr-value-quotes": "double",
+    "character-reference": true,
+    "attr-duplication": true,
+    "id-duplication": true
+  },
+  "nodeRules": [
+    {
+      "tagName": "head",
+      "rules": {
+        "indentation": 2
+      }
+    },
+    {
+      "tagName": "body",
+      "rules": {
+        "indentation": 2
+      }
+    }
+  ]
+}
